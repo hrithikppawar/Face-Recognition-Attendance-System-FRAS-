@@ -1,0 +1,41 @@
+{% extends 'system/layout.html' %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+
+{% block body %}
+    {% include 'system/navbar_user.html' %}
+    <div class="container">
+      <h2><strong>Hello... {{ request.user.first_name }}</strong></h2>
+      <br>
+      <br>
+      <div class="container row justify-content-center">
+        <div class='col align-self-center col-lg-2 pic-container'>
+          <img class='profile-pic' src="{{ request.user.teacher.profile_picture.url }}">
+          <div class="middle">
+              <a href="{% url 'edit_profile' %}"><button class="text">Edit</button></a>
+          </div>
+        </div>
+        <div class='col col-lg-4' style="text-align:left">  
+          <h4>Username: {{ request.user.username }}
+          <h4>Name: {{ request.user.first_name }} {{ request.user.last_name }}</h4>
+          <h4>Email: {{ request.user.email }}</h4>
+        </div>
+      </div>
+      <div class="jambotron">
+        <h1 id="head"></h1>
+        
+        <hr>
+        
+        <a class="btn btn-large btn-success" href="{% url 'take_attendence' %}">Take Attendance</a>
+        <hr>
+        <a class="btn btn-large btn-success" href="{% url 'attendance_list' %}">List of Attendance</a>
+        <hr>
+        <a class="btn btn-large btn-success" href="{% url 'create_student' %}">Create Student Account</a>
+        <hr>
+        <a class="btn btn-large btn-success" href="{% url 'student_list' %}">List of Students</a>
+      </div>
+    </div>
+{% endblock %}

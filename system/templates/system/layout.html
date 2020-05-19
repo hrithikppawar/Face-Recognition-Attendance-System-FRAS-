@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body style="background-image: url('{% static 'images/wal4.jpg' %}">
+        
+        {% block body %}
+
+        {% endblock %}
+
+    <footer class="page-footer font-small bg-light blue fixed-bottom">
+        
+            <div class="container footer-copyright text-center py-3" style="color:black">© 2020 Copyright:
+                <a href="#">HRIK</a>
+            </div>
+
+        
+    </footer>
+    </body>
+    {% block script %}{% endblock %}
+</html>

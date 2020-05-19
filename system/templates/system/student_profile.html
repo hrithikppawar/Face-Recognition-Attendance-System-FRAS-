@@ -1,0 +1,71 @@
+{% extends 'system/layout.html' %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+
+{% block body %}
+    {% include 'system/navbar_user.html' %}
+    <div class="container">
+      <h2><strong>Profile of {{ object.first_name }} {{ object.last_name }}</strong></h2>
+      <br>
+      <br>
+      <div class="container row justify-content-center">
+        <div class='col align-self-center col-lg-2 pic-container'>
+          <img class='profile-pic' src="{{ object.profile_picture.url }}">
+          <div class="middle">
+              <a href="/edit-student/{{ object.id }}"><button class="text">Edit</button></a>
+          </div>
+        </div>
+        <div class='col col-lg-8' style="text-align:left">  
+          <h4>PRN Number: {{ object.prn_number }}
+          <h4>Name: {{ object.first_name }} {{ object.last_name }}</h4>
+          <h4>Course: {{ object.course }}</h4>
+          <h4>Email: {{ object.email }}</h4>
+        </div>
+      </div>
+      <div class="jambotron">
+        <h1 id="head"></h1>
+        
+        <hr>
+        <div class = 'search-box'>
+        <form method='POST'>
+        {% csrf_token %}
+            <input type="text" name="reason" class="form-control" placeholder="Reason of Attendance">
+            <button class="btn btn-large btn-primary">Search</button>
+        </form>
+        </div>
+        <hr>
+        <div class='container'>
+            <h4 id="head">Total Attendance:{{ attendance.count }}</h4>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Reason</th>
+                        <th scope="col">Show</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+            
+            {% for obj in attendance %}
+                <tbody>
+                   
+                    <tr>
+    
+                        <td>{{ obj.date }}</td>
+                        <td>{{ obj.reason }}</td>
+                        <td><a href='/show-attendance/{{ obj.id }}' class="btn btn-primary">Show</a></td>
+                        <td><a href="/delete-attendance/{{ obj.id }}" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                    
+                 </tbody>
+                
+            {% endfor %}
+            </table>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}

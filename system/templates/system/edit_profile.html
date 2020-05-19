@@ -1,0 +1,22 @@
+{% extends 'system/layout.html' %}
+
+{% block title %}
+    Create Student
+{% endblock %}
+
+
+{% block body %}
+{% include 'system/navbar_user.html' %}
+    <div class="container">
+      <h2><strong>Create Student</strong></h2>
+      <div class="jambotron">
+        <h1 id="head"></h1>
+        <hr>
+        <form method='POST' action='' enctype="multipart/form-data">
+          {% csrf_token %}
+            {{ form.as_p }}
+            <button>Submit</button>
+        </form>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'system/layout.html' %}
+
+{% block title %}
+    home
+{% endblock %}
+
+
+{% block body %}
+  {% include 'system/navbar.html' %}
+    <div class="container">
+      <h2><strong>DOT, Welcomes you...</strong></h2>
+      <div class="jambotron">
+        <h1 id="head"></h1>
+        <hr>
+        <h3>Department of Technology, offers high level of educational environment <br> in which student are introduced with emerging technology <br> Which halps students to achieve there GOALS<br> This site is only for staff members and only used for Attendance</h3>
+        <h1>Sign up for one step forward to Successs!</h1>
+        <a class="btn btn-large btn-success" href="{% url 'register' %}">Register Now</a>
+        <h3>OR</h3>
+        <a class="btn btn-large btn-success" href="{% url 'login' %}">Sign-in Now</a>
+      </div>
+    </div>
+{% endblock %}

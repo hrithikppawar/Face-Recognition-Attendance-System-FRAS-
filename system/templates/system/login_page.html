@@ -1,0 +1,36 @@
+{% extends 'system/layout.html' %}
+
+{% block title %}
+    Sign-in
+{% endblock %}
+
+
+{% block body %}
+{% include 'system/navbar.html' %}
+    <div class="container">
+      <h2><strong>Sign-in</strong></h2>
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+      <div id='login-form' class="jambotron">
+        <h1 id="head"></h1>
+        <hr>
+        <form method='POST' action=''>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button class='btn btn-primary'>Sign-in</button>
+        </form>
+        <div>
+            <p>If you don't have account, then <a href='{% url 'register' %}'>Register.</a></p>
+        </div>
+      </div>
+    </div>
+{% endblock %}

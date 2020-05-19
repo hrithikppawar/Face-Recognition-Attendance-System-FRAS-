@@ -1,0 +1,23 @@
+{% extends 'system/layout.html' %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+
+{% block body %}
+    {% include 'system/navbar_user.html' %}
+    <div class="container">
+      <h2><strong>Hello... {{ request.user.first_name }}</strong></h2>
+      <div class="jambotron">
+        
+        <form method='POST'>
+            {% csrf_token %}
+            <label><h1 id="head">Do you want to delete attendance list of '{{ object.reason }}'?</h1></label><hr>
+            <a class="btn btn-primary" href='{% url "attendance_list" %}'>Cancel</a>
+            <button class="btn btn-danger">Confirm</button>
+        </form>
+        
+      </div>
+    </div>
+{% endblock %}

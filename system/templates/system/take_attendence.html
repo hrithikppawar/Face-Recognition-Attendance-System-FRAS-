@@ -1,0 +1,27 @@
+{% extends 'system/layout.html' %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+
+{% block body %}
+    {% include 'system/navbar_user.html' %}
+    <div class="container">
+      <h2><strong>Hello... {{ request.user.first_name }}</strong></h2>
+      <div class="jambotron">
+        <h1 id="head"></h1>
+        <hr>
+        <div class="profile">
+          <h3>Name: {{ request.user.first_name }} {{ request.user.last_name }}</h3>
+          <h3>Email: {{ request.user.email }}</h3>
+        </div>
+        <form method='POST' action=''>
+            {% csrf_token %}
+            <label>Reason of Attendence</label>
+            <input type="text" name="reason" class="form-control">
+            <button class="btn btn-large btn-success">Start</button>
+        </form>
+      </div>
+    </div>
+{% endblock %}
