@@ -1,4 +1,4 @@
-# dotattend
+# Face Recognition Attendance System
 
 This is a web development project using Django framework.
 This is a Face Recognition Attendance System (FRAS).
